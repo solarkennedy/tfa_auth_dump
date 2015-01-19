@@ -1,6 +1,6 @@
 ## tfa_auth_dump
 
-[![Build Status](https://travis-ci.org/solarkennedy/tfa_dump_auth.svg?branch=master)](https://travis-ci.org/solarkennedy/tfa_dump_auth)
+[![Build Status](https://travis-ci.org/solarkennedy/tfa_auth_dump.svg?branch=master)](https://travis-ci.org/solarkennedy/tfa_auth_dump)
 
 `tfa_auth_dump` is a command line utility to take a Two-Factor-Auth application database
 and dump it into QR codes you can re-import into another phone.
