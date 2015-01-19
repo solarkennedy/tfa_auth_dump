@@ -1,18 +1,38 @@
 package main
 
 import (
+	"code.google.com/p/rsc/qr"
 	"database/sql"
-	"github.com/codegangsta/cli"
-	_ "github.com/mattn/go-sqlite3"
-	//	"github.com/fumiyas/qrc/cmd/qrc"
 	"fmt"
+	"github.com/codegangsta/cli"
+	"github.com/fumiyas/qrc/lib"
+	_ "github.com/mattn/go-sqlite3"
 	"log"
 	"os"
 )
 
+// generate_otp_uri takes in an email and string and spits out an otp
+// uri per the spec:
+// https://code.google.com/p/google-authenticator/wiki/KeyUriFormat
+// otpauth://TYPE/LABEL?PARAMETERS
+//
+// Example:
+// otpauth://totp/Example:alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=Example
+func generate_otp_uri(email string, secret string) string {
+	return fmt.Sprintf("otpauth://totp/%s?secret=%s", email, secret)
+}
+
+func display_qr(email string, secret string) {
+	text := generate_otp_uri(email, secret)
+	code, _ := qr.Encode(text, qr.M)
+	fmt.Printf("Code for %s (secret %s):\n", email, secret)
+	qrc.PrintAA(os.Stdout, code, false)
+	fmt.Println()
+}
+
 func dump() {
 	fmt.Println("Dumping databse...")
-	db, err := sql.Open("sqlite3", "./test.sqlite")
+	db, err := sql.Open("sqlite3", "./example.db")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -27,7 +47,7 @@ func dump() {
 		var email string
 		var secret string
 		rows.Scan(&email, &secret)
-		fmt.Println(email, secret)
+		display_qr(email, secret)
 	}
 	rows.Close()
 }
