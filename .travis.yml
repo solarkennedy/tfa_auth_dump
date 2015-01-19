@@ -8,6 +8,7 @@ go:
 
 install:
   - export PATH=$PATH:$HOME/gopath/bin
-  - go get github.com/tools/godep
-  - godep restore
+  - go get -v -u github.com/kr/godep
+  - godep get
+  - godep go build -v ./...
 
