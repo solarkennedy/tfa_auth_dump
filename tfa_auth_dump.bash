@@ -1,7 +1,7 @@
 #! /bin/bash
 
-PROG=qr_auth_complete
-_qr_dump_auth_bash_autocomplete() {
+PROG=tfa_auth_complete
+_tfa_dump_auth_bash_autocomplete() {
      local cur prev opts base
      COMPREPLY=()
      cur="${COMP_WORDS[COMP_CWORD]}"

@@ -55,7 +55,7 @@ func dump(db_file string) {
 func main() {
 
 	app := cli.NewApp()
-	app.Name = "qr_auth_dump"
+	app.Name = "tfa_auth_dump"
 	app.Usage = "Dump secrets from a Google Authenticator database and spit out QR codes"
 	app.Action = func(c *cli.Context) {
 		dump(c.Args().First())

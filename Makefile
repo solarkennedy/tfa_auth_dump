@@ -5,14 +5,14 @@ test:
 
 run:
 	go build . 
-	./qr_auth_dump example.db
+	./tfa_auth_dump example.db
 
 deps:
 	godep get
 	godep save
 
 clean:
-	rm qr_auth_dump
+	rm tfa_auth_dump
 
 fmt:
 	go fmt .

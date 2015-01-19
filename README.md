@@ -7,6 +7,6 @@
 
 ## Tab Completion
 
-For no good reason:
+For no good reason (doesn't work yet):
 
-    source qr_auth_dump.bash
+    source tfa_auth_dump.bash
