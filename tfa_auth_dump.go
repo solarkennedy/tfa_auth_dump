@@ -22,6 +22,7 @@ func generate_otp_uri(email string, secret string) string {
 	return fmt.Sprintf("otpauth://totp/%s?secret=%s", email, secret)
 }
 
+// Actually print the right QR code to stdout given and email and secret
 func display_qr(email string, secret string) {
 	text := generate_otp_uri(email, secret)
 	code, _ := qr.Encode(text, qr.M)
@@ -30,6 +31,7 @@ func display_qr(email string, secret string) {
 	fmt.Println()
 }
 
+// Dumps and calls out to display qr codes based on a given input file
 func dump(db_file string) {
 	fmt.Printf("Dumping databse %s...", db_file)
 	db, err := sql.Open("sqlite3", db_file)
@@ -53,7 +55,6 @@ func dump(db_file string) {
 }
 
 func main() {
-
 	app := cli.NewApp()
 	app.Name = "tfa_auth_dump"
 	app.Usage = "Dump secrets from a Google Authenticator database and spit out QR codes"
@@ -62,5 +63,4 @@ func main() {
 	}
 
 	app.Run(os.Args)
-
 }
