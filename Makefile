@@ -5,7 +5,7 @@ test:
 
 run:
 	go build . 
-	./qr_auth_dump
+	./qr_auth_dump example.db
 
 deps:
 	godep get

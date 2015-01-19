@@ -30,9 +30,9 @@ func display_qr(email string, secret string) {
 	fmt.Println()
 }
 
-func dump() {
-	fmt.Println("Dumping databse...")
-	db, err := sql.Open("sqlite3", "./example.db")
+func dump(db_file string) {
+	fmt.Printf("Dumping databse %s...", db_file)
+	db, err := sql.Open("sqlite3", db_file)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -58,7 +58,7 @@ func main() {
 	app.Name = "qr_auth_dump"
 	app.Usage = "Dump secrets from a Google Authenticator database and spit out QR codes"
 	app.Action = func(c *cli.Context) {
-		dump()
+		dump(c.Args().First())
 	}
 
 	app.Run(os.Args)
