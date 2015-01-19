@@ -13,7 +13,7 @@ This is useful for:
 
 ## Screenshot
 
-![tfa_auth_dump_screenshot](https://raw.githubusercontent.com/solarkennedy/ether_house/master/tfa_auth_dump_screenshot.png)
+![tfa_auth_dump_screenshot](https://raw.githubusercontent.com/solarkennedy/tfa_auth_dump/master/tfa_auth_dump_screenshot.png)
 
 ## Installation
 
