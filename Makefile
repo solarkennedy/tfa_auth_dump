@@ -1,9 +1,11 @@
+.PHONY: test run deps clean fmt
+
 test:
 	go test -v -bench=.
 
 run:
 	go build . 
-	@run
+	./qr_auth_dump
 
 deps:
 	godep get
