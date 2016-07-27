@@ -1,12 +1,12 @@
 package main
 
 import (
-	"code.google.com/p/rsc/qr"
 	"database/sql"
 	"fmt"
 	"github.com/codegangsta/cli"
 	"github.com/fumiyas/qrc/lib"
 	_ "github.com/mattn/go-sqlite3"
+	"github.com/qpliu/qrencode-go/qrencode"
 	"log"
 	"os"
 )
@@ -25,7 +25,7 @@ func generate_otp_uri(email string, secret string) string {
 // Actually print the right QR code to stdout given and email and secret
 func display_qr(email string, secret string) {
 	text := generate_otp_uri(email, secret)
-	code, _ := qr.Encode(text, qr.M)
+	code, _ := qrencode.Encode(text, qrencode.ECLevelL)
 	fmt.Printf("Code for %s (secret %s):\n", email, secret)
 	qrc.PrintAA(os.Stdout, code, false)
 	fmt.Println()

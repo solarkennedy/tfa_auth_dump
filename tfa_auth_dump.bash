@@ -1,6 +1,6 @@
 #! /bin/bash
 
-PROG=tfa_auth_complete
+PROG=tfa_auth_dump
 _tfa_dump_auth_bash_autocomplete() {
      local cur prev opts base
      COMPREPLY=()
@@ -11,4 +11,4 @@ _tfa_dump_auth_bash_autocomplete() {
      return 0
  }
 
-complete -F _cli_bash_autocomplete $PROG
+complete -F _tfa_dump_auth_bash_autocomplete $PROG
