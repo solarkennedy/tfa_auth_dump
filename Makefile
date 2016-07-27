@@ -8,8 +8,7 @@ run:
 	./tfa_auth_dump example.db
 
 deps:
-	godep get
-	godep save
+	go get -t .
 
 clean:
 	rm tfa_auth_dump
