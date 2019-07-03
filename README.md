@@ -28,8 +28,20 @@ Assuming you have your GOPATH setup and stuff.
     scp root@android:/data/data/com.google.android.apps.authenticator2/databases/databases /tmp/android_ga.db
     tfa_auth_dump /tmp/android_ga.db
 
-## Tab Completion
+### Duo Security
 
-For no good reason (doesn't work yet):
+# New Style
 
-    source tfa_auth_dump.bash
+    scp root@android:/data/data/com.duosecurity.duomobile/files/duokit/accounts.json /tmp/duo_accounts.json
+    tfa_auth_dump /tmp/duo_accounts.json
+
+or
+
+    adb root
+    adb pull /data/data/com.duosecurity.duomobile/files/duokit/accounts.json /tmp/duo_accounts.json
+    tfa_auth_dump /tmp/duo_accounts.json
+
+# Old Style
+
+    scp root@android:/data/data/com.duosecurity.duomobile/databases/databases /tmp/duo.db
+    tfa_auth_dump /tmp/duo.db
