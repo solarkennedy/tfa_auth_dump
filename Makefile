@@ -1,4 +1,4 @@
-.PHONY: test run deps clean fmt
+.PHONY: test run clean fmt
 
 test:
 	go test -v -bench=.
@@ -6,9 +6,6 @@ test:
 run:
 	go build . 
 	./tfa_auth_dump example.db
-
-deps:
-	go get -t .
 
 clean:
 	rm tfa_auth_dump
