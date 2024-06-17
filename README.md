@@ -1,7 +1,5 @@
 ## tfa_auth_dump
 
-[![Build Status](https://travis-ci.org/solarkennedy/tfa_auth_dump.svg?branch=master)](https://travis-ci.org/solarkennedy/tfa_auth_dump)
-
 `tfa_auth_dump` is a command line utility to take a Two-Factor-Auth application database
 and dump it into QR codes you can re-import into another phone.
 
@@ -27,6 +25,10 @@ Assuming you have your GOPATH setup and stuff.
 
     scp root@android:/data/data/com.google.android.apps.authenticator2/databases/databases /tmp/android_ga.db
     tfa_auth_dump /tmp/android_ga.db
+
+or
+
+    make adb
 
 ### Duo Security
 
