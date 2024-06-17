@@ -3,8 +3,10 @@
 test:
 	go test -v -bench=.
 
-run:
-	go build . 
+tfa_auth_dump:
+	go build .
+
+run: tfa_auth_dump
 	./tfa_auth_dump example.db
 
 clean:
@@ -13,3 +15,6 @@ clean:
 fmt:
 	go fmt .
 
+adb: tfa_auth_dump
+	adb shell su -c cat /data/data/com.google.android.apps.authenticator2/databases/databases > database.sqlite
+	./tfa_auth_dump database.sqlite
